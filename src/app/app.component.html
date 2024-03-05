@@ -1,6 +1,6 @@
 <div class="search">
-  <form >
-    <input type="text" placeholder="Search City">
+  <form #forms="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Search City" name="city" [(ngModel)]="cityName">
   </form>
 </div>
 
@@ -13,7 +13,7 @@
         {{weatherData.data[0].city_name}}
       </div>
       <div class="temperature">
-        {{weatherData.data[0].temp | number:'1.0-0'}}°C 
+        {{weatherData.data[0].temp | number:'1.0-0'}}°C
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
           <img src="../assets/minn.png">
           <span>Pressure</span>
         </div>
-        <div class="info-block-value">          
+        <div class="info-block-value">
           {{convertMbToBar(weatherData.data[0].pres)}} bars
         </div>
       </div>

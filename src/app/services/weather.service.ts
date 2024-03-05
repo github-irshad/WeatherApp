@@ -10,16 +10,15 @@ import { Observable } from 'rxjs';
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  getWeatherData(cityName: string) : Observable<WeatherData> {
+  getWeatherData(cityName: string): Observable<WeatherData> {
     return this.http.get<WeatherData>(environment.weatherBaseUrl, {
-      headers: new HttpHeaders()
-        .set(
-          environment.AcceptHeaderName,
-          environment.AcceptHeaderValue
-        ),
-        params: new HttpParams()
-        .set('city',cityName)
-        .set('key',environment.key)
+      headers: new HttpHeaders().set(
+        environment.AcceptHeaderName,
+        environment.AcceptHeaderValue
+      ),
+      params: new HttpParams()
+        .set('city', cityName)
+        .set('key', environment.key),
     });
   }
 }
