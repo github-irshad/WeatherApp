@@ -22,4 +22,11 @@ export class AppComponent implements OnInit {
     }
     })
   }
+
+  convertMsToKmh(metersPerSecond: number): number {
+    return metersPerSecond * 3.6;
+}
+ convertMbToBar(millibars: number): number {
+  return millibars / 1000;
+}
 }

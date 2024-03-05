@@ -1,54 +1,52 @@
 export interface WeatherData {
-  coord: Coord;
-  weather: Weather[];
-  base: string;
-  main: Main;
-  visibility: number;
-  wind: Wind;
-  clouds: Clouds;
-  dt: number;
-  sys: Sys;
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number;
-}
-
-export interface Coord {
-  lon: number;
-  lat: number;
-}
-
-export interface Weather {
-  id: number;
-  main: string;
-  description: string;
-  icon: string;
-}
-
-export interface Main {
-  temp: number;
-  feels_like: number;
-  temp_min: number;
-  temp_max: number;
-  pressure: number;
-  humidity: number;
-}
-
-export interface Wind {
-  speed: number;
-  deg: number;
-  gust: number;
-}
-
-export interface Clouds {
-  all: number;
-}
-
-export interface Sys {
-  type: number;
-  id: number;
-  country: string;
-  sunrise: number;
-  sunset: number;
-}
+    count: number
+    data: Daum[]
+  }
+  
+  export interface Daum {
+    app_temp: number
+    aqi: number
+    city_name: string
+    clouds: number
+    country_code: string
+    datetime: string
+    dewpt: number
+    dhi: number
+    dni: number
+    elev_angle: number
+    ghi: number
+    gust: number
+    h_angle: number
+    lat: number
+    lon: number
+    ob_time: string
+    pod: string
+    precip: number
+    pres: number
+    rh: number
+    slp: number
+    snow: number
+    solar_rad: number
+    sources: string[]
+    state_code: string
+    station: string
+    sunrise: string
+    sunset: string
+    temp: number
+    timezone: string
+    ts: number
+    uv: number
+    vis: number
+    weather: Weather
+    wind_cdir: string
+    wind_cdir_full: string
+    wind_dir: number
+    wind_spd: number
+  }
+  
+  export interface Weather {
+    description: string
+    code: number
+    icon: string
+  }
+  

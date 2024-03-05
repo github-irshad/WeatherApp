@@ -1,13 +1,19 @@
+<div class="search">
+  <form >
+    <input type="text" placeholder="Search City">
+  </form>
+</div>
+
 <div class="container" *ngIf="weatherData">
   <div class="upper-data">
-    <img src="../assets/coldWeather.jpg" *ngIf="weatherData.main.temp<=15">
-    <img src="../assets/hotWeather.jpg" *ngIf="weatherData.main.temp>15">
+    <img src="../assets/coldWeather.jpg" *ngIf="weatherData.data[0].app_temp">
+    <img src="../assets/hotWeather.jpg" *ngIf="weatherData.data[0].app_temp>15">
     <div class="weather-data">
       <div class="location">
-        {{weatherData.name}}
+        {{weatherData.data[0].city_name}}
       </div>
       <div class="temperature">
-        {{weatherData.main.temp | number:'1.0-0'}}°C 
+        {{weatherData.data[0].temp | number:'1.0-0'}}°C 
       </div>
     </div>
   </div>
@@ -17,19 +23,19 @@
       <div class="info-block">
         <div class="info-block-label">
           <img src="../assets/minn.png">
-          <span>min</span>
+          <span>aqi</span>
         </div>
         <div class="info-block-value">
-          {{weatherData.main.temp_min| number:'1.0-0'}}°C
+          {{weatherData.data[0].aqi| number:'1.0-0'}} ppm
         </div>
       </div>
       <div class="info-block">
         <div class="info-block-label">
           <img src="../assets/minn.png">
-          <span>max</span>
+          <span>Pressure</span>
         </div>
-        <div class="info-block-value">
-          {{weatherData.main.temp_max| number:'1.0-0'}}°C
+        <div class="info-block-value">          
+          {{convertMbToBar(weatherData.data[0].pres)}} bars
         </div>
       </div>
       <div class="info-block">
@@ -38,7 +44,7 @@
           <span>humidity</span>
         </div>
         <div class="info-block-value">
-          {{weatherData.main.humidity}}%
+          {{weatherData.data[0].rh}}%
         </div>
       </div>
       <div class="info-block">
@@ -47,7 +53,7 @@
           <span>wind</span>
         </div>
         <div class="info-block-value">
-          {{weatherData.wind.speed}} Km/h
+          {{convertMsToKmh(weatherData.data[0].wind_spd)| number:'1.0-0'}} Km/h
         </div>
       </div>
     </div>

@@ -134,3 +134,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.search {
+    margin-bottom: 1em;
+    text-align: center;
+    }
